@@ -33,8 +33,8 @@ def oauth_callback(provider):
         return redirect(url_for('index'))
     oauth = OAuthSignIn.get_provider(provider)
     username, email = oauth.callback()
-
-    if email is None:
+    domain = email.split("@")
+    if email is None or domain[len(domain) - 1] != 'thelattice.in':
         # I need a valid email address for my user identification
         flash('Authentication failed.')
         return redirect(url_for('index'))
