@@ -2,5 +2,9 @@
 <body>
   Hooray, you are logged in as:
   {{ current_user.email }}
+  <br/>
+    <a href={{ url_for('logout') }}>
+          Logout
+        </a>
 </body>
 </html>

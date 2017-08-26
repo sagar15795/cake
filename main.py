@@ -59,5 +59,15 @@ def login():
 def index():
   return render_template('index.html')
 
+
+@app.route('/logout')
+@login_required
+def logout():
+    logout_user()
+    return redirect(url_for('login'))
+
+
+
+
 if __name__ == "__main__":
-  app.run(host="0.0.0.0", debug=True)
+  app.run(host="localhost", debug=True)
