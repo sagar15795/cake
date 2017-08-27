@@ -57,7 +57,13 @@ def login():
 @app.route('/')
 @login_required
 def index():
-  return render_template('index.html')
+    x = [{'order_id': 0, 'order_item_count': 100}, {'order_id': 1, 'order_item_count': 200},
+         {'order_id': 2, 'order_item_count': 300}, {'order_id': 3, 'order_item_count': 400}]
+    item = [{'item_id': 0, 'item_name': 'item1', 'item_addedby': 'sagar@thelattice..in'},
+            {'item_id': 1, 'item_name': 'item2', 'item_addedby': 'sagar1@thelattice.in'},
+            {'item_id': 2, 'item_name': 'item2', 'item_addedby': 'sagar2@thelattice.in'},
+            {'item_id': 3, 'item_name': 'item2', 'item_addedby': 'sagar3@thelattice.in'}]
+    return render_template('index.html', all_files=x, item=item)
 
 
 @app.route('/logout')
